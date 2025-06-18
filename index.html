@@ -1,96 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caprichos – de todo un poco</title>
-    <link rel="stylesheet" href="estilos.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caprichos – de todo un poco</title>
+  <link rel="stylesheet" href="estilos.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <body>
-    <div id="fondo"></div>
-    <header class="navbar">
-        <img src="logo-caprichos.png" alt="Logo Caprichos" class="logo">
-        <nav class="nav-links">
-            <a href="index.html">Inicio</a>
-            <a href="#catalogo">Catálogo</a>
-            <a href="contacto.html">Contacto</a>
-            <a href="#carrito">🛒 Carrito (<span id="carrito-contador">0</span>)</a>
-        </nav>
-    </header>
+  <div id="fondo"></div>
 
-    <section id="catalogo">
-  <h1>Nuestros Productos</h1>
-  <div class="productos">
-    <div class="producto">
-      <lottie-player src="gift_animation.json" background="transparent" speed="1" style="width: 150px; height: 150px;" autoplay></lottie-player>
-      <h2>Producto 1</h2>
-      <p>$1000</p>
-      <a href="https://link.mercadopago.com.ar/caprichosregalos" target="_blank">
-        <button>Comprar</button>
-      </a>
+  <header class="navbar">
+    <img src="assets/logo-caprichos.png" alt="Logo Caprichos" class="logo" />
+    <nav class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="javascript:void(0)" id="carrito-toggle">🛒 Carrito (<span id="carrito-contador">0</span>)</a>
+    </nav>
+  </header>
+
+  <section id="catalogo">
+    <h1>Nuestros Productos</h1>
+    <div class="productos">
+      <div class="producto">
+        <lottie-player src="assets/gift_animation.json" background="transparent" speed="1" style="width:150px;height:150px;" autoplay></lottie-player>
+        <h2>Producto 1</h2>
+        <p>$1000</p>
+        <button onclick="agregarAlCarrito('Producto 1', 1000)">Lo quiero</button>
+      </div>
+      <div class="producto">
+        <lottie-player src="assets/gift_animation.json" background="transparent" speed="1" style="width:150px;height:150px;" autoplay></lottie-player>
+        <h2>Producto 2</h2>
+        <p>$1500</p>
+        <button onclick="agregarAlCarrito('Producto 2', 1500)">Lo quiero</button>
+      </div>
+      <div class="producto">
+        <lottie-player src="assets/gift_animation.json" background="transparent" speed="1" style="width:150px;height:150px;" autoplay></lottie-player>
+        <h2>Producto 3</h2>
+        <p>$2000</p>
+        <button onclick="agregarAlCarrito('Producto 3', 2000)">Lo quiero</button>
+      </div>
     </div>
-    <div class="producto">
-      <lottie-player src="gift_animation.json" background="transparent" speed="1" style="width: 150px; height: 150px;" autoplay></lottie-player>
-      <h2>Producto 2</h2>
-      <p>$1500</p>
-      <a href="https://link.mercadopago.com.ar/caprichosregalos" target="_blank">
-        <button>Comprar</button>
-      </a>
-    </div>
-    <div class="producto">
-      <lottie-player src="gift_animation.json" background="transparent" speed="1" style="width: 150px; height: 150px;" autoplay></lottie-player>
-      <h2>Producto 3</h2>
-      <p>$2000</p>
-      <a href="https://link.mercadopago.com.ar/caprichosregalos" target="_blank">
-        <button>Comprar</button>
-      </a>
-    </div>
+  </section>
+
+  <div id="carrito" style="display:none;">
+    <h3>Mi carrito</h3>
+    <ul id="lista-carrito"></ul>
+    <p id="carrito-total">Total: $0</p>
+    <button onclick="finalizarCompra()">Finalizar compra</button>
   </div>
-</section>
 
+  <a href="https://wa.me/541141890774" class="whatsapp" target="_blank">💬</a>
 
-        </section>
-    </main>
-
-    <!-- WhatsApp flotante -->
-    <a href="https://wa.me/541141890774" class="whatsapp" target="_blank" title="Contáctanos por WhatsApp">💬</a>
-
-    <script>
-    VANTA.WAVES({
-        el: "#fondo",
-        mouseControls: true,
-        touchControls: true,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0xa69ac3,
-        shininess: 50.00,
-        waveHeight: 15.00,
-        waveSpeed: 0.5,
-        zoom: 0.8
-    });
-
-    let carrito = [];
-    function agregarAlCarrito(producto) {
-        carrito.push(producto);
-        document.getElementById('carrito-contador').innerText = carrito.length;
-        actualizarCarrito();
-    }
-
-    function actualizarCarrito() {
-        const lista = document.getElementById('lista-carrito');
-        lista.innerHTML = '';
-        carrito.forEach((item, i) => {
-            const li = document.createElement('li');
-            li.innerText = item;
-            lista.appendChild(li);
-        });
-    }
-    </script>
+  <script src="carrito.js"></script>
 </body>
 </html>

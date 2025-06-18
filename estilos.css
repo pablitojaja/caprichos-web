@@ -1,124 +1,63 @@
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #fff0f5;
+  color: #333;
 }
-
-body, html {
-    height: 100%;
-    overflow-x: hidden;
-    color: #3d2c54;
-}
-
 #fondo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
-
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  background-color: #ffe4f2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
-
 .logo {
-    width: 140px;
-    height: auto;
+  height: 60px;
 }
-
 .nav-links a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #3d2c54;
-    font-weight: bold;
-    transition: color 0.3s;
+  margin: 0 10px;
+  text-decoration: none;
+  color: #222;
+  font-weight: bold;
 }
-
-.nav-links a:hover {
-    color: #7c62a3;
-}
-
-.contenido {
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-#catalogo h1 {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
 .productos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
 }
-
 .producto {
-    background: rgba(255,255,255,0.85);
-    border-radius: 12px;
-    padding: 20px;
-    width: 250px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-
-.producto:hover {
-    transform: translateY(-5px);
-}
-
 button {
-    background-color: #a69ac3;
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: #f48fb1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
-
-button:hover {
-    background-color: #7c62a3;
-}
-
 #carrito {
-    background: rgba(255,255,255,0.85);
-    margin-top: 40px;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: white;
+  padding: 15px;
+  border: 1px solid #ccc;
+  margin: 20px;
 }
-
-#carrito ul {
-    list-style: none;
-    padding: 0;
-}
-
 .whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25D366;
-    color: white;
-    padding: 15px 18px;
-    border-radius: 50%;
-    font-size: 24px;
-    text-decoration: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 1000;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 30px;
+  text-decoration: none;
 }
